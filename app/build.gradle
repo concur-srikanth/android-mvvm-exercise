@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "28.0.3"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    buildFeatures {
+        dataBinding true
+    }
+    dataBinding {
+        enabled = true
+    }
+
+
+    defaultConfig {
+        applicationId "com.turo.assignment"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0-alpha01"
+
+    implementation 'com.google.dagger:dagger-android:2.15'
+    implementation 'com.google.android.material:material:1.2.0'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.15'
+
+    // androidX Libraries
+    implementation androidXLibraries
+
+    // Rxjava
+    // RxKotlin
+    implementation rxKotlinLibraries
+
+    // Retrofit
+    implementation networkLibraies
+
+    //Picasso
+    implementation picassoLibraries
+
+    // Optional: Circle Indicator (To fix the xml preview "Missing classes" error)
+    implementation 'me.relex:circleindicator:2.1.4'
+
+ /*   // Dependencies required for Okta OIDC
+    implementation 'com.okta.authn.sdk:okta-authn-sdk-api:1.0.0'
+    implementation('com.okta.authn.sdk:okta-authn-sdk-impl:1.0.0') {
+        exclude group: 'com.okta.sdk', module: 'okta-sdk-httpclient'
+    }
+    implementation 'com.okta.android:oidc-androidx:1.0.11'*/
+
+    // Dependency required for Biomatric-Authentication (which we will detail how to implement later on in this same article)
+    implementation 'androidx.biometric:biometric:1.0.1'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}

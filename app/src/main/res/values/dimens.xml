@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_padding">16dp</dimen>
+    <dimen name="list_item_height">200dp</dimen>
+    <dimen name="left_margin">20dp</dimen>
+    <dimen name="divider_height_thin_line">1dp</dimen>
+    <dimen name="padding_cardview">10dp</dimen>
+    <dimen name="top_margin">10dp</dimen>
+    <dimen name="image_height">80dp</dimen>
+    <dimen name="image_width">200dp</dimen>
+</resources>
